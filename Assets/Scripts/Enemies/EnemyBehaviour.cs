@@ -21,8 +21,6 @@ public class EnemyBehaviour : MonoBehaviour
     void Start()
     {
         direction = gameObject.transform.localScale.x;
-
-        canShoot = true;
     }
 
     // Update is called once per frame
@@ -36,7 +34,13 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void OnBecameVisible()
     {
+        canShoot = true;
         Shoot();
+    }
+
+    private void OnBecameInvisible()
+    {
+        canShoot = false;
     }
 
     void Shoot()
