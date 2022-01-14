@@ -11,6 +11,7 @@ public class EnemyBehaviour : MonoBehaviour
     public Transform barrelEnd;
 
     [Space(10)]
+    float direction = 1;
     public float minTime;
     public float maxTime;
 
@@ -19,7 +20,7 @@ public class EnemyBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canShoot = true;
+        direction = gameObject.transform.localScale.x;
     }
 
     // Update is called once per frame
@@ -33,12 +34,19 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void OnBecameVisible()
     {
+        canShoot = true;
         Shoot();
+    }
+
+    private void OnBecameInvisible()
+    {
+        canShoot = false;
     }
 
     void Shoot()
     {
-        Instantiate(bullet, barrelEnd.position, barrelEnd.rotation);
+        GameObject b = Instantiate(bullet, barrelEnd.position, barrelEnd.rotation);
+        b.GetComponent<BulletScript>().speed = b.GetComponent<BulletScript>().speed * direction;
     }
 
     public float CalculateDelayTime()
