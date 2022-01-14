@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform aimDucking;
     public Transform aimDownjumping;
     public Transform currentAimingPoint;
+    public AudioSource jumpAudio;
 
     private bool isAimingDiagonally;
 
@@ -126,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && hangCounter > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            jumpAudio.Play();
         }
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0)

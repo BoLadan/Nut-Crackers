@@ -32386,6 +32386,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5543992993736106614, guid: 260e9d75b5f32bb4fa441c237d2fb4de, type: 3}
+      propertyPath: rateOfFire
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5543992993736106615, guid: 260e9d75b5f32bb4fa441c237d2fb4de, type: 3}
       propertyPath: m_RootOrder
       value: 5
