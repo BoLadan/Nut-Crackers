@@ -22,6 +22,8 @@ public class Weapons : MonoBehaviour
         playerMovement = gameObject.GetComponent<PlayerMovement>();
 
         initialRateOfFire = rateOfFire;
+
+        rateOfFire = 0;
     }
 
     public void Shoot()
