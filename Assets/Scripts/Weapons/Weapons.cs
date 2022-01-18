@@ -11,12 +11,11 @@ public class Weapons : MonoBehaviour
     public float weaponSpread;
     public float bulletSpeed;
     public float destroyTimer;
-    public AudioSource shootAudio;
 
     public GameObject bulletPrefab;
     private GameObject bullet;
 
-    public BulletScript bs;
+    List<GameObject> bulletList = new List<GameObject>();
 
     public void Start()
     {
@@ -25,20 +24,42 @@ public class Weapons : MonoBehaviour
         initialRateOfFire = rateOfFire;
     }
 
+    private void Update()
+    {
+        //Debug.Log(playerMovement.currentAimingPoint.position.x);
+        //Debug.Log(playerMovement.currentAimingPoint.position.y);
+
+        //barrel.transform.position = playerMovement.currentAimingPoint.position;
+    }
+
     public void Shoot()
     {
         rateOfFire -= Time.deltaTime;
 
-        if (rateOfFire < 0)
+        if (Input.GetButton("Fire1") && rateOfFire < 0)
         {
-            bs.speed = bulletSpeed;
+            Debug.Log("Shoot");
 
             bullet = Instantiate(bulletPrefab, playerMovement.currentAimingPoint.position, CalculateBulletSpread(weaponSpread));
-
-            shootAudio.Play();
+            bulletList.Add(bullet);
 
             rateOfFire = initialRateOfFire;
         }
+
+        for (int i = 0; i < bulletList.Count; i++)
+        {
+            bulletList[i].transform.Translate(bulletSpeed * Time.deltaTime, 0, 0);
+        }
+
+        StartCoroutine(RemoveBullet(bullet, destroyTimer));
+    }
+
+    private IEnumerator RemoveBullet(GameObject bullet, float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        bulletList.Remove(bullet);
+
+        Destroy(bullet);
     }
 
     private Quaternion CalculateBulletSpread(float weaponSpread)
