@@ -6,9 +6,6 @@ public class Weapons_Rifle : Weapons
 {
     private void Update()
     {
-        if (Input.GetButton("Fire1"))
-        {
-            Shoot();
-        }
+        Shoot();
     }
 }
