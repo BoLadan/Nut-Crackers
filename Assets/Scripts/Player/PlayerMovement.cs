@@ -24,12 +24,15 @@ public class PlayerMovement : MonoBehaviour
     public Transform aimDucking;
     public Transform aimDownjumping;
     public Transform currentAimingPoint;
+    public AudioSource jumpAudio;
 
     private bool isAimingDiagonally;
 
     [Header("Animation")]
     public Animator torso;
     public Animator legs;
+
+    Vector3 originalScale;
 
     [SerializeField]
     private LayerMask platformLayerMask;
@@ -40,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         //currentAimingPoint = aimHorizontal;
+        originalScale = transform.localScale;
     }
 
     // Update is called once per frame
@@ -123,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && hangCounter > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            jumpAudio.Play();
         }
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0)
@@ -135,12 +140,12 @@ public class PlayerMovement : MonoBehaviour
         //flipping the transform to face the correct side to shoot
         if (GetHorizontalAxis() >= 0.01f)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(originalScale.x, originalScale.y, originalScale.z);
         }
 
         if (GetHorizontalAxis() <= -0.01f)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(-originalScale.x, originalScale.y, originalScale.z);
         }
         #endregion
 
@@ -164,7 +169,14 @@ public class PlayerMovement : MonoBehaviour
             angle = 0;
         }
 
-        if (transform.localScale.x == -1)
+        if (torso.GetBool("isCrouching") && !torso.GetBool("onGround"))
+        {
+            currentAimingPoint = aimDownjumping;
+
+            angle = -90;
+        }
+
+        if (transform.localScale.x == -originalScale.x)
         {
             currentAimingPoint.rotation = Quaternion.Euler(currentAimingPoint.rotation.x, currentAimingPoint.rotation.y, currentAimingPoint.rotation.z + 180 - angle);
         }
