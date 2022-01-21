@@ -135,7 +135,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5543992993736106615}
   - component: {fileID: 5543992993736106616}
+  - component: {fileID: 6934366668446782930}
   - component: {fileID: 5543992993736106614}
+  - component: {fileID: 3933333071185629893}
+  - component: {fileID: 8275697111782382640}
   - component: {fileID: 5543992993736106617}
   - component: {fileID: 5543992993736106618}
   - component: {fileID: 7729055966478621786}
@@ -192,6 +195,24 @@ MonoBehaviour:
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &6934366668446782930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5543992993736106619}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b49b60a7888887408cff989d9928830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rateOfFire: 0.6
+  weaponSpread: 10
+  bulletSpeed: 2
+  destroyTimer: 5
+  bulletPrefab: {fileID: 4137312476043748929, guid: cc4416c13cbc2fd4a92d968d61a30de1, type: 3}
+  bs: {fileID: 6023150773169776163, guid: cc4416c13cbc2fd4a92d968d61a30de1, type: 3}
 --- !u!114 &5543992993736106614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,7 +220,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5543992993736106619}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30544e182e842304988ff5afaceae6c5, type: 3}
   m_Name: 
@@ -211,6 +232,43 @@ MonoBehaviour:
   shootAudio: {fileID: 7729055966478621786}
   bulletPrefab: {fileID: 4137312476043748929, guid: cc4416c13cbc2fd4a92d968d61a30de1, type: 3}
   bs: {fileID: 6023150773169776163, guid: cc4416c13cbc2fd4a92d968d61a30de1, type: 3}
+--- !u!114 &3933333071185629893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5543992993736106619}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0448a162e96930489785744fed008ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rateOfFire: 0.1
+  weaponSpread: 50
+  bulletSpeed: 10
+  destroyTimer: 6
+  bulletPrefab: {fileID: 4137312476043748929, guid: cc4416c13cbc2fd4a92d968d61a30de1, type: 3}
+  bs: {fileID: 6023150773169776163, guid: cc4416c13cbc2fd4a92d968d61a30de1, type: 3}
+--- !u!114 &8275697111782382640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5543992993736106619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb2cbefc4f85b7c439963f64696bbc52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rateOfFire: 2
+  weaponSpread: 50
+  bulletSpeed: 12
+  destroyTimer: 6
+  bulletPrefab: {fileID: 4137312476043748929, guid: cc4416c13cbc2fd4a92d968d61a30de1, type: 3}
+  bs: {fileID: 6023150773169776163, guid: cc4416c13cbc2fd4a92d968d61a30de1, type: 3}
+  bulletAmount: 5
 --- !u!61 &5543992993736106617
 BoxCollider2D:
   m_ObjectHideFlags: 0
