@@ -11,6 +11,7 @@ public class LevelEnd : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("level end");
             StartCoroutine(LevelLoadSequence());
         }
     }

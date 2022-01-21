@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 9028604563859864233}
   m_Layer: 0
   m_Name: PlayerUse
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -211,6 +211,7 @@ MonoBehaviour:
   weaponSpread: 10
   bulletSpeed: 2
   destroyTimer: 5
+  shootAudio: {fileID: 0}
   bulletPrefab: {fileID: 4137312476043748929, guid: cc4416c13cbc2fd4a92d968d61a30de1, type: 3}
   bs: {fileID: 6023150773169776163, guid: cc4416c13cbc2fd4a92d968d61a30de1, type: 3}
 --- !u!114 &5543992993736106614
@@ -248,6 +249,7 @@ MonoBehaviour:
   weaponSpread: 50
   bulletSpeed: 10
   destroyTimer: 6
+  shootAudio: {fileID: 0}
   bulletPrefab: {fileID: 4137312476043748929, guid: cc4416c13cbc2fd4a92d968d61a30de1, type: 3}
   bs: {fileID: 6023150773169776163, guid: cc4416c13cbc2fd4a92d968d61a30de1, type: 3}
 --- !u!114 &8275697111782382640
@@ -266,6 +268,7 @@ MonoBehaviour:
   weaponSpread: 50
   bulletSpeed: 12
   destroyTimer: 6
+  shootAudio: {fileID: 0}
   bulletPrefab: {fileID: 4137312476043748929, guid: cc4416c13cbc2fd4a92d968d61a30de1, type: 3}
   bs: {fileID: 6023150773169776163, guid: cc4416c13cbc2fd4a92d968d61a30de1, type: 3}
   bulletAmount: 5
